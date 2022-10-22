@@ -1,0 +1,29 @@
+/*  cabeçalho */
+body {
+  background-color: #eeeeee;
+}
+header {
+  background-color: #216db9;
+  margin-bottom: 30px;
+}
+
+.div-info {
+  padding: 5px;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.div-info ul {
+  list-style: none;
+}
+
+.div-info li {
+  display: inline-block;
+}
+
+/* tabela */
+#tabelaCursos .numero {
+  text-align: center;
+}
