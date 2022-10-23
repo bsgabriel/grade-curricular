@@ -1,7 +1,8 @@
 /*  cabeçalho */
 body {
-  background-color: #eeeeee;
+  background-color: #ffffff;
 }
+
 header {
   background-color: #216db9;
   margin-bottom: 30px;
@@ -15,15 +16,35 @@ header {
   flex-direction: column;
 }
 
-.div-info ul {
-  list-style: none;
-}
-
-.div-info li {
-  display: inline-block;
-}
-
 /* tabela */
 #tabelaCursos .numero {
+  text-align: center;
+}
+
+#tabelaCursos .content:hover {
+  background-color: #4c7dad;
+
+  color: white;
+}
+
+#tabelaCursos .content:active {
+  background-color: #3877b5;
+  color: white;
+}
+
+/* janela modal */
+.mdl-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mdl-content p {
+  text-align: justify;
+}
+
+#modalOutros {
+  font-weight: bold;
   text-align: center;
 }
