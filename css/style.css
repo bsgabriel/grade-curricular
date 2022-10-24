@@ -32,19 +32,29 @@ header {
   color: white;
 }
 
+.semestre-par {
+  background-color: #eeeeee;
+}
+
+.semestre-impar {
+  background-color: #dddddd;
+}
+
 /* janela modal */
 .mdl-header {
-  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.mdl-content p {
+.bold {
+  font-weight: bold;
+}
+
+.mdl-text-justified {
   text-align: justify;
 }
 
-#modalOutros {
-  font-weight: bold;
+.mdl-text-centered {
   text-align: center;
 }
