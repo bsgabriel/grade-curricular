@@ -158,3 +158,9 @@ function clearPopUp() {
   }
 
 }
+
+
+/**
+ * @todo
+ * achar um tratamento para quando os pré requisitos forem no mesmo estilo de FBI4017 - trabalho de conclusão de curso
+ */
