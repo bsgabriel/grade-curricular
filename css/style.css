@@ -1,14 +1,21 @@
-/*  cabeçalho */
+/* geral */
+ul {
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+}
+
 body {
   background-color: #ffffff;
 }
 
+/*  cabeçalho */
 header {
   background-color: #216db9;
   margin-bottom: 30px;
 }
 
-.div-info {
+.info-cabecalho {
   padding: 5px;
   text-align: center;
   color: white;
@@ -57,4 +64,22 @@ header {
 
 .mdl-text-centered {
   text-align: center;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.grid-item {
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  font-size: 15px; 
+  color: #ffffff;
+  background-color: #3877b5;
+  width: 30%;
+  margin: 5px;
 }
