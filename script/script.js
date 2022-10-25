@@ -57,13 +57,15 @@ function loadTable(table) {
 }
 
 /**
- * Adiciona eventos de clique nas linhas de uma tabela
+ * Adiciona eventos de clique nas linhas da tabela
  * @param {Object} table 
  */
 function addRowHandlers(table) {
   Array.from(table.rows).forEach(row => {
     row.onclick = function () {
       return function () {
+        clearPopUp();
+
         const id = this.cells[0].innerHTML;
         const codigo = document.getElementById('modalCodDisciplina');
         const txtCodigo = jsonData.DISCIPLINAS[id].CODIGO;
@@ -98,6 +100,8 @@ function addRowHandlers(table) {
         const preRequisitos = jsonData.DISCIPLINAS[id].PREREQUISITOS;
 
         if (typeof preRequisitos !== 'undefined') {
+          const lblPreRequisitos = document.getElementById('lblPreRequisitos');
+          lblPreRequisitos.textContent = 'Pré-requisitos';
           createGrid(preRequisitos);
         }
       };
@@ -142,4 +146,15 @@ function createGridItem(ordem) {
   item.appendChild(codDisciplina);
   item.appendChild(nomeDisciplina);
   grid.appendChild(item);
+}
+
+function clearPopUp() {
+  const lblPreRequisitos = document.getElementById('lblPreRequisitos');
+  lblPreRequisitos.textContent = '';
+  
+  const grid = document.getElementById('gridPreRequisitos');
+  while (grid.firstChild) {
+    grid.removeChild(grid.firstChild);
+  }
+
 }
