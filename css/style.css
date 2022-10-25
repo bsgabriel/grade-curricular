@@ -83,3 +83,18 @@ header {
   width: 30%;
   margin: 5px;
 }
+
+/* footer */
+.footer {
+	background: #216db9;
+	padding-top: 10px;
+	padding-bottom: 10px;
+  display: flex;
+}
+
+.footer p {
+	font-size: 1.125em;
+	line-height: 1.4em;
+  color: #ffffff;
+  text-align: center;
+}
