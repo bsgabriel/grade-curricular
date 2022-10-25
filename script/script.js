@@ -109,7 +109,6 @@ function addRowHandlers(table) {
   });
 }
 
-
 /**
  * Chama a função de criação de itens da lista com base no tipo de dado que recebe. 
  * Pode receber um array de string ("1, 2, 3..") ou um valor numérico.
@@ -117,11 +116,17 @@ function addRowHandlers(table) {
  */
 function createGrid(requisitos) {
   if (typeof requisitos === 'string') {
-    requisitos = requisitos.replace(' ', '');
-    arrRequisitos = requisitos.split(',').map(Number);
-    arrRequisitos.forEach(req => {
-      createGridItem(req);
-    });
+    requisitos = requisitos.replaceAll(' ', '');
+    if(requisitos.includes(',')){
+      arrRequisitos = requisitos.split(',').map(Number);
+      arrRequisitos.forEach(req => {
+        createGridItem(req);
+      });
+    } else {
+      // TO-DO: separar o a string por +, e para cada elemento, adicionar '+' e o elemento na div
+      grid = createGridItem(requisitos.split('+')[0]);
+      grid.appendChild(create)
+    }
   } else if (typeof requisitos === 'number') {
     createGridItem(requisitos);
   }
@@ -129,7 +134,7 @@ function createGrid(requisitos) {
 
 /**
  * Cria uma div com as informações da disciplina que possui a ordem informada
- * @param {number} requisito 
+ * @param {number} ordem 
  */
 function createGridItem(ordem) {
   const grid = document.getElementById('gridPreRequisitos');
@@ -141,7 +146,6 @@ function createGridItem(ordem) {
   const nomeDisciplina = document.createElement('p');
   nomeDisciplina.textContent = jsonData.DISCIPLINAS[ordem].DISCIPLINA;
 
-  // item.classList.add('col');
   item.classList.add('grid-item');
   item.appendChild(codDisciplina);
   item.appendChild(nomeDisciplina);
