@@ -24,19 +24,16 @@ function loadTable(table) {
     row.setAttribute("data-target", "#janelaModal");
     row.setAttribute("data-id", j);
 
-    const idx = row.insertCell(0);
-    const semestre = row.insertCell(1);
-    const codDisciplina = row.insertCell(2);
-    const nomeDisciplina = row.insertCell(3);
-    const cargaHoraria = row.insertCell(4);
+    const semestre = row.insertCell(0);
+    const codDisciplina = row.insertCell(1);
+    const nomeDisciplina = row.insertCell(2);
+    const cargaHoraria = row.insertCell(3);
 
-    idx.innerHTML = j;
     semestre.innerHTML = jsonData.DISCIPLINAS[j].SEMESTRE;
     codDisciplina.innerHTML = jsonData.DISCIPLINAS[j].CODIGO;
     nomeDisciplina.innerHTML = jsonData.DISCIPLINAS[j].DISCIPLINA;
     cargaHoraria.innerHTML = jsonData.DISCIPLINAS[j].HORAS + "h";
 
-    idx.classList.add("numero");
     semestre.classList.add("numero");
     cargaHoraria.classList.add("numero");
 
@@ -53,8 +50,9 @@ function addRowHandlers(table) {
     row.onclick = (function () {
       return function () {
         clearPopUp();
-
-        const id = this.cells[0].innerHTML;
+        
+        // const id = this.cells[0].innerHTML;
+        const id = row.rowIndex - 1;
         const codigo = document.getElementById("modalCodDisciplina");
         const txtCodigo = jsonData.DISCIPLINAS[id].CODIGO;
         codigo.innerHTML = txtCodigo;
@@ -101,7 +99,7 @@ function addRowHandlers(table) {
 
 function createGrid(requisitos) {
   if (typeof requisitos === "number") {
-    createGridItem(requisitos);
+    createGridItem(requisitos - 1);
     return;
   }
 
@@ -110,10 +108,10 @@ function createGrid(requisitos) {
     if (requisitos.includes(",")) {
       arrRequisitos = requisitos.split(",").map(Number);
       arrRequisitos.forEach((req) => {
-        createGridItem(req);
+        createGridItem(req - 1);
       });
     } else if (requisitos.includes("+")) {
-      createGridItem(requisitos.split("+")[0]);
+      createGridItem(requisitos.split("+")[0] - 1);
     }
     return;
   }
